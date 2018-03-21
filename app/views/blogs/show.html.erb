@@ -53,13 +53,16 @@
             </div>
 
               <div class="single_image"></div>
+                <%= attachment_image_tag @blog, :blog_image %>
               <p class="single_text">
                 <!-- 本文 -->
                 <%= @blog.body %>
               </p>
 
-          <a href="#">編集</a>
-          <a href="#">削除</a>
+          <%= link_to "編集", edit_blog_path %>
+          <!-- link_toメソッドはデフォルトでHTTPメソッドがget -->
+          <!-- form_forはデフォルトでHTTPメソッドがpost -->
+          <%= link_to "削除", blog_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
 
           <div class="author_case clearfix">
             <div class="author_image"></div>
